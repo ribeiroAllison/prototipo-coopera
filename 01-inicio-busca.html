@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coopera Máquinas — Início — Busca de Máquinas</title>
+<title>Coopera Máquinas — Início / Busca</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -229,20 +229,36 @@ select.search-field{padding-left:12px;cursor:pointer}
   .stats-grid{grid-template-columns:1fr 1fr}
 }
 
+
+.switcher-bar a{
+  display:inline-block;
+  border:none;
+  border-bottom:2.5px solid transparent;
+  padding:14px 18px;
+  font-size:13px;
+  font-weight:500;
+  color:var(--muted);
+  text-decoration:none;
+  white-space:nowrap;
+  transition:.15s;
+}
+.switcher-bar a:hover{color:var(--text)}
+.switcher-bar a.active{color:var(--green);border-bottom-color:var(--green)}
+
 .screen{display:block!important}
 </style>
 </head>
 <body>
 <nav class="nav">
-  <a class="logo" href="#">
+  <a class="logo" href="index.html">
     <div class="logo-mark">
       <svg viewBox="0 0 18 18"><path d="M3 14 Q6 5 9 7 Q12 9 15 3"/></svg>
     </div>
     Coopera Máquinas
   </a>
   <ul class="nav-links">
-    <li><a href="#">Buscar máquinas</a></li>
-    <li><a href="#">Anunciar</a></li>
+    <li><a href="01-inicio-busca.html">Buscar máquinas</a></li>
+    <li><a href="03-painel-locador.html">Anunciar</a></li>
     <li><a href="#">Como funciona</a></li>
   </ul>
   <div class="nav-actions">
@@ -250,6 +266,14 @@ select.search-field{padding-left:12px;cursor:pointer}
     <button class="btn btn-primary">Cadastrar</button>
   </div>
 </nav>
+
+<div class="switcher-bar">
+  <a href="01-inicio-busca.html" class="active">Início / Busca</a>
+    <a href="02-detalhe-maquina.html" class="">Detalhe da máquina</a>
+    <a href="03-painel-locador.html" class="">Painel do locador</a>
+    <a href="04-cadastro.html" class="">Cadastro</a>
+    
+</div>
 <div id="screen-home" class="screen active">
   <section class="hero">
     <div class="hero-inner">
