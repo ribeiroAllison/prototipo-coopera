@@ -23,7 +23,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Buscar máquinas</a></li>
-        <li><a href="03-painel-visao-geral.html" class="active">Meu painel</a></li>
+        <li><a href="painel-locatario-visao-geral.html" class="active">Meu painel</a></li>
         <li><a href="#">Como funciona</a></li>
       </ul>
       <div class="nav-right">
@@ -34,21 +34,21 @@
           <div class="notif-dot"></div>
         </div>
         <div class="user-chip">
-          <div class="user-avatar">JF</div>
-          <span class="user-name">João Ferreira</span>
+          <div class="user-avatar">MA</div>
+          <span class="user-name">Marcos Almeida</span>
         </div>
       </div>
     </nav>
     <div class="switcher-bar">
       <a href="index.html">Início / Busca</a>
       <a href="02-detalhe-maquina.html">Detalhe da máquina</a>
-      <a href="03-painel-visao-geral.html" class="active">Painel do locador</a>
+      <a href="03-painel-visao-geral.html">Painel do locador</a>
+      <a href="painel-locatario-visao-geral.html" class="active">Painel do locatário</a>
       <a href="04-cadastro.html">Cadastro</a>
-      <a href="painel-locatario-visao-geral.html">Painel do locatário</a>
     </div>
     <div class="dash-layout">
       <aside class="dash-sidebar">
-        <a class="dash-nav-item" href="03-painel-visao-geral.html">
+        <a class="dash-nav-item" href="painel-locatario-visao-geral.html">
           <svg viewBox="0 0 16 16">
             <rect x="1" y="1" width="6" height="6" rx="1" />
             <rect x="9" y="1" width="6" height="6" rx="1" />
@@ -57,46 +57,37 @@
           </svg>
           Visão geral
         </a>
-        <div class="nav-section">Gestão</div>
-        <a class="dash-nav-item" href="painel-maquinas.html">
+        <div class="nav-section">Locações</div>
+        <a class="dash-nav-item" href="painel-locatario-locacoes.html">
           <svg viewBox="0 0 16 16">
             <rect x="1" y="7" width="10" height="7" rx="1" />
             <circle cx="4" cy="14" r="2" />
             <circle cx="9" cy="14" r="2" />
             <rect x="7" y="4" width="6" height="5" rx="1" />
           </svg>
-          Minhas máquinas
+          Minhas locações
         </a>
-        <a class="dash-nav-item" href="painel-pedidos.html">
-          <svg viewBox="0 0 16 16">
-            <path d="M2 4h12M2 8h8M2 12h5" />
-            <circle cx="13" cy="11" r="3" />
-            <path d="M12 11l.8.8L14.5 9.5" />
-          </svg>
-          Pedidos pendentes
-          <span class="nav-badge">2</span>
-        </a>
-        <a class="dash-nav-item active" href="painel-agenda.html">
-          <svg viewBox="0 0 16 16">
-            <rect x="1" y="3" width="14" height="12" rx="2" />
-            <path d="M5 1v4M11 1v4M1 8h14" />
-          </svg>
-          Agenda
-        </a>
-        <a class="dash-nav-item" href="painel-contratos.html">
+        <a class="dash-nav-item" href="painel-locatario-contratos.html">
           <svg viewBox="0 0 16 16">
             <rect x="2" y="1" width="12" height="14" rx="2" />
             <path d="M5 5h6M5 8h6M5 11h4" />
           </svg>
           Contratos
         </a>
+        <a class="dash-nav-item active" href="painel-locatario-agenda.html">
+          <svg viewBox="0 0 16 16">
+            <rect x="1" y="3" width="14" height="12" rx="2" />
+            <path d="M5 1v4M11 1v4M1 8h14" />
+          </svg>
+          Agenda
+        </a>
         <div class="nav-section">Relatórios</div>
-        <a class="dash-nav-item" href="painel-historico.html">
+        <a class="dash-nav-item" href="painel-locatario-historico.html">
           <svg viewBox="0 0 16 16">
             <circle cx="8" cy="8" r="6" />
             <path d="M8 5v3l2 2" />
           </svg>
-          Histórico
+          Histórico de gastos
         </a>
         <div style="margin-top: auto">
           <div style="height: 1px; background: var(--border); margin: 12px 0"></div>
@@ -114,7 +105,7 @@
           <div class="page-header">
             <div>
               <div class="page-title">Agenda</div>
-              <div class="page-sub">Visão mensal das locações</div>
+              <div class="page-sub">Visão mensal das minhas locações</div>
             </div>
             <div style="display: flex; gap: 4px">
               <button
@@ -179,45 +170,45 @@
               <div class="cal-day"><div class="cal-day-num">4</div></div>
               <div class="cal-day">
                 <div class="cal-day-num">5</div>
-                <div class="cal-event">Silvana R.</div>
+                <div class="cal-event amber">Colheitadeira CR</div>
               </div>
               <div class="cal-day">
                 <div class="cal-day-num">6</div>
-                <div class="cal-event">Silvana R.</div>
-                <div class="cal-event amber">Pedro C.</div>
+                <div class="cal-event amber">Colheitadeira CR</div>
               </div>
               <div class="cal-day today">
                 <div class="cal-day-num">7</div>
-                <div class="cal-event">Silvana R.</div>
-                <div class="cal-event amber">Pedro C.</div>
+                <div class="cal-event amber">Colheitadeira CR</div>
+                <div class="cal-event">Trator NH 7630</div>
               </div>
               <div class="cal-day">
                 <div class="cal-day-num">8</div>
-                <div class="cal-event">Silvana R.</div>
-                <div class="cal-event amber">Pedro C.</div>
+                <div class="cal-event amber">Colheitadeira CR</div>
+                <div class="cal-event">Trator NH 7630</div>
               </div>
-              <div class="cal-day"><div class="cal-day-num">9</div></div>
-              <div class="cal-day"><div class="cal-day-num">10</div></div>
-              <div class="cal-day"><div class="cal-day-num">11</div></div>
-              <div class="cal-day"><div class="cal-day-num">12</div></div>
+              <div class="cal-day">
+                <div class="cal-day-num">9</div>
+                <div class="cal-event amber">Colheitadeira CR</div>
+                <div class="cal-event">Trator NH 7630</div>
+              </div>
+              <div class="cal-day">
+                <div class="cal-day-num">10</div>
+                <div class="cal-event">Trator NH 7630</div>
+              </div>
+              <div class="cal-day">
+                <div class="cal-day-num">11</div>
+                <div class="cal-event">Trator NH 7630</div>
+              </div>
+              <div class="cal-day">
+                <div class="cal-day-num">12</div>
+                <div class="cal-event">Trator NH 7630</div>
+              </div>
               <div class="cal-day"><div class="cal-day-num">13</div></div>
               <div class="cal-day"><div class="cal-day-num">14</div></div>
-              <div class="cal-day">
-                <div class="cal-day-num">15</div>
-                <div class="cal-event gray">Ana R.</div>
-              </div>
-              <div class="cal-day">
-                <div class="cal-day-num">16</div>
-                <div class="cal-event gray">Ana R.</div>
-              </div>
-              <div class="cal-day">
-                <div class="cal-day-num">17</div>
-                <div class="cal-event gray">Ana R.</div>
-              </div>
-              <div class="cal-day">
-                <div class="cal-day-num">18</div>
-                <div class="cal-event gray">Ana R.</div>
-              </div>
+              <div class="cal-day"><div class="cal-day-num">15</div></div>
+              <div class="cal-day"><div class="cal-day-num">16</div></div>
+              <div class="cal-day"><div class="cal-day-num">17</div></div>
+              <div class="cal-day"><div class="cal-day-num">18</div></div>
               <div class="cal-day"><div class="cal-day-num">19</div></div>
               <div class="cal-day"><div class="cal-day-num">20</div></div>
               <div class="cal-day"><div class="cal-day-num">21</div></div>
@@ -248,19 +239,13 @@
                 <div
                   style="width: 12px; height: 12px; border-radius: 3px; background: var(--green)"
                 ></div>
-                Trator NH 7630
+                Trator NH 7630 (João Ferreira)
               </div>
               <div style="display: flex; align-items: center; gap: 6px">
                 <div
                   style="width: 12px; height: 12px; border-radius: 3px; background: var(--amber)"
                 ></div>
-                Pulverizador 2000
-              </div>
-              <div style="display: flex; align-items: center; gap: 6px">
-                <div
-                  style="width: 12px; height: 12px; border-radius: 3px; background: var(--muted)"
-                ></div>
-                Agendado (pendente)
+                Colheitadeira CR 8.80 (Carlos Rezende)
               </div>
             </div>
           </div>

@@ -1,0 +1,46 @@
+/* ===========================================
+   BASE — Reset, Design Tokens, Typography
+   =========================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Brand greens */
+  --green: #3b6d11;
+  --green-dark: #27500a;
+  --green-mid: #639922;
+  --green-light: #eaf3de;
+  --green-pale: #f4faea;
+
+  /* Accent amber */
+  --amber: #ba7517;
+  --amber-light: #faeeda;
+
+  /* Accent red */
+  --red: #a32d2d;
+  --red-light: #fcebeb;
+
+  /* Neutrals */
+  --text: #1a1f12;
+  --muted: #6b7563;
+  --border: #e4eadd;
+  --surface: #fff;
+  --surface2: #f7f9f4;
+
+  /* Radii */
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: var(--surface2);
+  min-height: 100vh;
+}

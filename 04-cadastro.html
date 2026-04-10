@@ -1,317 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coopera Máquinas — Cadastro</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>
-
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --green:#3B6D11;--green-dark:#27500A;--green-mid:#639922;
-  --green-light:#EAF3DE;--green-pale:#f4faea;
-  --amber:#BA7517;--amber-light:#FAEEDA;
-  --text:#1a1f12;--muted:#6b7563;--border:#e4eadd;
-  --surface:#fff;--surface2:#f7f9f4;
-  --radius:12px;--radius-sm:8px;
-}
-body{font-family:'Inter',sans-serif;color:var(--text);background:var(--surface2);min-height:100vh}
-
-/* NAV */
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--text);text-decoration:none}
-.logo-mark{width:32px;height:32px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center}
-.logo-mark svg{width:18px;height:18px;fill:none;stroke:#EAF3DE;stroke-width:2;stroke-linecap:round}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:.15s}
-.nav-links a:hover,.nav-links a.active{color:var(--text);font-weight:500}
-.nav-actions{display:flex;gap:10px;align-items:center}
-.btn{border-radius:var(--radius-sm);padding:9px 18px;font-size:14px;font-weight:500;cursor:pointer;transition:.15s;border:none;font-family:'Inter',sans-serif}
-.btn-ghost{background:none;border:1.5px solid var(--border);color:var(--text)}
-.btn-ghost:hover{border-color:var(--green);color:var(--green)}
-.btn-primary{background:var(--green);color:#EAF3DE}
-.btn-primary:hover{background:var(--green-dark)}
-.btn-outline{background:none;border:1.5px solid var(--green);color:var(--green)}
-.btn-outline:hover{background:var(--green);color:#EAF3DE}
-
-/* SCREENS */
-.screen{display:block}
-
-
-/* SCREEN SWITCHER */
-.switcher-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:0;overflow-x:auto}
-.sw-btn{background:none;border:none;border-bottom:2.5px solid transparent;padding:14px 18px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:.15s}
-.sw-btn:hover{color:var(--text)}
-.sw-btn.active{color:var(--green);border-bottom-color:var(--green)}
-
-/* HERO */
-.hero{background:linear-gradient(135deg,#1a2e0a 0%,#2d5010 60%,#3B6D11 100%);color:#EAF3DE;padding:72px 32px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-inner{max-width:680px;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(234,243,222,.15);border:1px solid rgba(234,243,222,.25);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:500;margin-bottom:20px;color:#c8e6a0}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.1;margin-bottom:16px;color:#fff}
-.hero h1 span{color:#97C459}
-.hero p{font-size:16px;line-height:1.7;color:rgba(234,243,222,.8);margin-bottom:32px;max-width:520px}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.hero-btns .btn-primary{background:#97C459;color:#17340A;font-size:15px;padding:12px 24px}
-.hero-btns .btn-primary:hover{background:#C0DD97}
-.hero-btns .btn-ghost{border-color:rgba(255,255,255,.3);color:#EAF3DE;font-size:15px;padding:12px 24px}
-.hero-btns .btn-ghost:hover{background:rgba(255,255,255,.1)}
-.hero-stats{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
-.hero-stat{}
-.hero-stat-num{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:#fff}
-.hero-stat-label{font-size:13px;color:rgba(234,243,222,.6);margin-top:2px}
-
-/* SEARCH SECTION */
-.search-section{background:var(--surface);padding:24px 32px;border-bottom:1px solid var(--border)}
-.search-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.search-input-wrap{flex:1;min-width:200px;position:relative}
-.search-input-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:1.5}
-.search-field{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px 10px 36px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:var(--surface2);transition:.15s}
-.search-field:focus{outline:none;border-color:var(--green);background:var(--surface)}
-select.search-field{padding-left:12px;cursor:pointer}
-.btn-search{background:var(--green);color:#EAF3DE;border:none;border-radius:var(--radius-sm);padding:10px 22px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:.15s}
-.btn-search:hover{background:var(--green-dark)}
-
-/* FILTER TABS */
-.filter-tabs{padding:20px 32px 0;display:flex;gap:8px;overflow-x:auto;background:var(--surface);border-bottom:1px solid var(--border)}
-.filter-tab{background:none;border:1.5px solid var(--border);border-radius:999px;padding:7px 16px;font-size:13px;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;margin-bottom:16px;transition:.15s}
-.filter-tab:hover{border-color:var(--green);color:var(--green)}
-.filter-tab.active{background:var(--green);color:#EAF3DE;border-color:var(--green)}
-
-/* MAIN LAYOUT */
-.main-wrap{max-width:1200px;margin:0 auto;padding:32px}
-.section-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:600;color:var(--text);margin-bottom:20px}
-
-/* CARDS GRID */
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:40px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.2s;cursor:pointer}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,109,17,.1);border-color:var(--green-mid)}
-.card-img{height:140px;background:var(--green-light);display:flex;align-items:center;justify-content:center;position:relative}
-.card-img svg{width:56px;height:56px}
-.card-tag{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:500}
-.tag-avail{background:var(--green);color:#EAF3DE}
-.tag-booked{background:var(--amber-light);color:var(--amber)}
-.card-body{padding:14px 16px}
-.card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
-.card-meta{font-size:12px;color:var(--muted);margin-bottom:12px}
-.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border)}
-.card-price{font-size:14px;font-weight:500;color:var(--green)}
-.card-rating{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px}
-.star{color:#BA7517}
-
-/* DETAIL PAGE */
-.detail-layout{display:grid;grid-template-columns:1fr 360px;gap:24px;max-width:1200px;margin:0 auto;padding:32px}
-.detail-main{}
-.detail-sidebar{}
-.detail-img-wrap{background:var(--green-light);border-radius:var(--radius);height:280px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;border:1px solid var(--border)}
-.detail-img-wrap svg{width:100px;height:100px}
-.detail-info{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
-.detail-info h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px}
-.detail-info .location{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.chip{background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:5px 12px;font-size:12px;color:var(--muted)}
-.chip.avail{background:var(--green-light);border-color:#C0DD97;color:var(--green-dark)}
-.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.spec-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px}
-.spec-row:last-child{border:none}
-.spec-row span:first-child{color:var(--muted)}
-.spec-row span:last-child{font-weight:500}
-.reviews{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
-.reviews h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:600;margin-bottom:16px}
-.review-card{background:var(--surface2);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px}
-.review-author{font-size:13px;font-weight:500;margin-bottom:4px}
-.review-text{font-size:13px;color:var(--muted);line-height:1.5}
-
-/* SIDEBAR BOOKING */
-.booking-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:sticky;top:80px}
-.price-display{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
-.price-big{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--green)}
-.price-alt{font-size:13px;color:var(--muted);margin-top:4px}
-.booking-field{margin-bottom:14px}
-.booking-field label{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:6px}
-.booking-field input,.booking-field select{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:var(--surface2);transition:.15s}
-.booking-field input:focus,.booking-field select:focus{outline:none;border-color:var(--green)}
-.booking-total{background:var(--green-light);border-radius:var(--radius-sm);padding:14px;margin:16px 0;display:flex;justify-content:space-between;align-items:center}
-.booking-total span{font-size:13px;color:var(--green-dark)}
-.booking-total strong{font-family:'Syne',sans-serif;font-size:18px;color:var(--green)}
-.btn-book{width:100%;background:var(--green);color:#EAF3DE;border:none;border-radius:var(--radius-sm);padding:14px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;margin-bottom:10px;transition:.15s}
-.btn-book:hover{background:var(--green-dark)}
-.btn-chat{width:100%;background:none;border:1.5px solid var(--green);color:var(--green);border-radius:var(--radius-sm);padding:13px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s}
-.btn-chat:hover{background:var(--green-light)}
-.safety-note{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:12px;color:var(--muted)}
-
-/* DASHBOARD */
-.dash-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 115px)}
-.dash-sidebar{background:var(--surface);border-right:1px solid var(--border);padding:24px 12px}
-.dash-nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--muted);cursor:pointer;margin-bottom:2px;transition:.15s}
-.dash-nav-item:hover{background:var(--surface2);color:var(--text)}
-.dash-nav-item.active{background:var(--green-light);color:var(--green-dark);font-weight:500}
-.dash-nav-item svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.5}
-.dash-content{padding:32px;background:var(--surface2)}
-.dash-greeting{font-family:'Syne',sans-serif;font-size:22px;font-weight:600;margin-bottom:6px}
-.dash-sub{font-size:14px;color:var(--muted);margin-bottom:28px}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
-.stat-label{font-size:12px;color:var(--muted);margin-bottom:6px}
-.stat-num{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:var(--text)}
-.stat-num.green{color:var(--green)}
-.stat-num.amber{color:var(--amber)}
-.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.dash-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
-.dash-panel h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;margin-bottom:16px}
-.request-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
-.request-item:last-child{border:none;padding-bottom:0}
-.avatar{width:36px;height:36px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--green-dark);flex-shrink:0}
-.request-info{flex:1}
-.request-name{font-size:13px;font-weight:500;color:var(--text)}
-.request-meta{font-size:12px;color:var(--muted)}
-.badge{padding:4px 10px;border-radius:999px;font-size:11px;font-weight:500}
-.badge-green{background:var(--green-light);color:var(--green-dark)}
-.badge-amber{background:var(--amber-light);color:var(--amber)}
-.badge-gray{background:var(--surface2);color:var(--muted)}
-.map-placeholder{background:var(--green-light);border-radius:var(--radius-sm);height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px solid #C0DD97}
-.map-placeholder svg{width:32px;height:32px;fill:var(--green-mid)}
-.map-placeholder span{font-size:13px;color:var(--green-dark);font-weight:500}
-.map-placeholder small{font-size:11px;color:var(--muted)}
-
-/* REGISTER */
-.register-layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 65px)}
-.register-hero{background:linear-gradient(160deg,#1a2e0a,#3B6D11);padding:60px;display:flex;flex-direction:column;justify-content:center}
-.register-hero h2{font-family:'Syne',sans-serif;font-size:32px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:16px}
-.register-hero p{font-size:15px;color:rgba(234,243,222,.75);line-height:1.7;margin-bottom:32px}
-.register-feature{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:rgba(234,243,222,.85)}
-.register-feature::before{content:'';width:6px;height:6px;border-radius:50%;background:#97C459;flex-shrink:0}
-.register-form{padding:60px;background:var(--surface);display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
-.register-form h2{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;margin-bottom:6px}
-.register-form p{font-size:14px;color:var(--muted);margin-bottom:28px}
-.form-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:4px;gap:4px;margin-bottom:24px}
-.form-toggle-btn{flex:1;padding:9px;border:none;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;color:var(--muted);background:none;transition:.15s}
-.form-toggle-btn.active{background:var(--surface);color:var(--green);box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-field{margin-bottom:16px}
-.form-field label{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:6px}
-.form-field input,.form-field select{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:var(--surface2);transition:.15s}
-.form-field input:focus,.form-field select:focus{outline:none;border-color:var(--green);background:var(--surface)}
-.btn-register{width:100%;background:var(--green);color:#EAF3DE;border:none;border-radius:var(--radius-sm);padding:13px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s;margin-top:4px}
-.btn-register:hover{background:var(--green-dark)}
-.login-link{text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
-.login-link a{color:var(--green);text-decoration:none;font-weight:500}
-
-/* MOBILE RESPONSIVE */
-@media(max-width:768px){
-  .nav{padding:12px 16px}
-  .nav-links,.nav-actions .btn-ghost{display:none}
-  .hero{padding:40px 16px 48px}
-  .hero-stats{gap:24px;margin-top:32px}
-  .search-section,.filter-tabs{padding:16px}
-  .search-row{flex-direction:column}
-  .search-input-wrap{width:100%}
-  .main-wrap{padding:16px}
-  .cards-grid{grid-template-columns:1fr 1fr}
-  .detail-layout{grid-template-columns:1fr;padding:16px}
-  .booking-card{position:static}
-  .dash-layout{grid-template-columns:1fr}
-  .dash-sidebar{display:none}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .dash-grid{grid-template-columns:1fr}
-  .register-layout{grid-template-columns:1fr}
-  .register-hero{display:none}
-  .register-form{padding:32px 20px}
-  .form-row{grid-template-columns:1fr}
-  .specs-grid{grid-template-columns:1fr}
-  .switcher-bar{padding:0 16px}
-}
-@media(max-width:480px){
-  .cards-grid{grid-template-columns:1fr}
-  .hero h1{font-size:26px}
-  .stats-grid{grid-template-columns:1fr 1fr}
-}
-
-
-.switcher-bar a{
-  display:inline-block;
-  border:none;
-  border-bottom:2.5px solid transparent;
-  padding:14px 18px;
-  font-size:13px;
-  font-weight:500;
-  color:var(--muted);
-  text-decoration:none;
-  white-space:nowrap;
-  transition:.15s;
-}
-.switcher-bar a:hover{color:var(--text)}
-.switcher-bar a.active{color:var(--green);border-bottom-color:var(--green)}
-
-.screen{display:block!important}
-</style>
-</head>
-<body>
-<nav class="nav">
-  <a class="logo" href="index.html">
-    <div class="logo-mark">
-      <svg viewBox="0 0 18 18"><path d="M3 14 Q6 5 9 7 Q12 9 15 3"/></svg>
-    </div>
-    Coopera Máquinas
-  </a>
-  <ul class="nav-links">
-    <li><a href="01-inicio-busca.html">Buscar máquinas</a></li>
-    <li><a href="03-painel-visao-geral.html">Anunciar</a></li>
-    <li><a href="#">Como funciona</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button class="btn btn-ghost">Entrar</button>
-    <button class="btn btn-primary">Cadastrar</button>
-  </div>
-</nav>
-
-<div class="switcher-bar">
-  <a href="01-inicio-busca.html" class="">Início / Busca</a>
-    <a href="02-detalhe-maquina.html" class="">Detalhe da máquina</a>
-    <a href="03-painel-visao-geral.html" class="">Painel do locador</a>
-    <a href="04-cadastro.html" class="active">Cadastro</a>
-    
-</div>
-<div id="screen-register" class="screen">
-  <div class="register-layout">
-    <div class="register-hero">
-      <h2>Faça parte da maior plataforma de mecanização agrícola</h2>
-      <p>Conecte sua máquina a milhares de produtores rurais ou encontre o equipamento ideal para a sua lavoura. Simples, seguro e transparente.</p>
-      <div class="register-feature">Acesso a mais de 1.200 máquinas cadastradas</div>
-      <div class="register-feature">Contrato digital com assinatura eletrônica</div>
-      <div class="register-feature">Rastreamento em tempo real das máquinas</div>
-      <div class="register-feature">Sistema de avaliações e classificação</div>
-      <div class="register-feature">Chat direto entre locador e produtor</div>
-      <div class="register-feature">Cobertura em mais de 380 municípios</div>
-    </div>
-    <div class="register-form">
-      <h2>Criar conta gratuita</h2>
-      <p>Preencha seus dados para começar agora mesmo</p>
-      <div class="form-toggle">
-        <button class="form-toggle-btn active" onclick="toggleProfile(this)">Produtor rural (locatário)</button>
-        <button class="form-toggle-btn" onclick="toggleProfile(this)">Proprietário de máquina (locador)</button>
-      </div>
-      <div class="form-row">
-        <div class="form-field"><label>Nome completo</label><input type="text" placeholder="João da Silva"></div>
-        <div class="form-field"><label>CPF / CNPJ</label><input type="text" placeholder="000.000.000-00"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-field"><label>E-mail</label><input type="email" placeholder="joao@email.com"></div>
-        <div class="form-field"><label>Telefone / WhatsApp</label><input type="tel" placeholder="(35) 99999-9999"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-field"><label>Estado</label>
-          <select><option>Selecione</option><option>MG</option><option>SP</option><option>GO</option><option>MT</option><option>PR</option></select>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coopera Máquinas — Cadastro</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="logo" href="index.html">
+        <div class="logo-mark">
+          <svg viewBox="0 0 18 18"><path d="M3 14 Q6 5 9 7 Q12 9 15 3" /></svg>
         </div>
-        <div class="form-field"><label>Município</label><input type="text" placeholder="Lavras"></div>
+        Coopera Máquinas
+      </a>
+      <ul class="nav-links">
+        <li><a href="01-inicio-busca.html">Buscar máquinas</a></li>
+        <li><a href="03-painel-visao-geral.html">Anunciar</a></li>
+        <li><a href="#">Como funciona</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-ghost">Entrar</button>
+        <button class="btn btn-primary">Cadastrar</button>
       </div>
-      <div class="form-field"><label>Senha</label><input type="password" placeholder="Mínimo 8 caracteres"></div>
-      <button class="btn-register">Criar conta gratuita</button>
-      <p class="login-link">Já tem uma conta? <a href="#" onclick="showScreen('home');return false">Entrar</a></p>
+    </nav>
+
+    <div class="switcher-bar">
+      <a href="01-inicio-busca.html" class="">Início / Busca</a>
+      <a href="02-detalhe-maquina.html" class="">Detalhe da máquina</a>
+      <a href="03-painel-visao-geral.html" class="">Painel do locador</a>
+      <a href="04-cadastro.html" class="active">Cadastro</a>
+      <a href="painel-locatario-visao-geral.html" class="">Painel do locatário</a>
     </div>
-  </div>
-</div>
-</body>
+    <div id="screen-register" class="screen">
+      <div class="register-layout">
+        <div class="register-hero">
+          <h2>Faça parte da maior plataforma de mecanização agrícola</h2>
+          <p>
+            Conecte sua máquina a milhares de produtores rurais ou encontre o equipamento ideal para
+            a sua lavoura. Simples, seguro e transparente.
+          </p>
+          <div class="register-feature">Acesso a mais de 1.200 máquinas cadastradas</div>
+          <div class="register-feature">Contrato digital com assinatura eletrônica</div>
+          <div class="register-feature">Rastreamento em tempo real das máquinas</div>
+          <div class="register-feature">Sistema de avaliações e classificação</div>
+          <div class="register-feature">Chat direto entre locador e produtor</div>
+          <div class="register-feature">Cobertura em mais de 380 municípios</div>
+        </div>
+        <div class="register-form">
+          <h2>Criar conta gratuita</h2>
+          <p>Preencha seus dados para começar agora mesmo</p>
+          <div class="form-toggle">
+            <button class="form-toggle-btn active" onclick="toggleProfile(this)">
+              Produtor rural (locatário)
+            </button>
+            <button class="form-toggle-btn" onclick="toggleProfile(this)">
+              Proprietário de máquina (locador)
+            </button>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Nome completo</label>
+              <input type="text" placeholder="João da Silva" />
+            </div>
+            <div class="form-field">
+              <label>CPF / CNPJ</label>
+              <input type="text" placeholder="000.000.000-00" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>E-mail</label>
+              <input type="email" placeholder="joao@email.com" />
+            </div>
+            <div class="form-field">
+              <label>Telefone / WhatsApp</label>
+              <input type="tel" placeholder="(35) 99999-9999" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Estado</label>
+              <select>
+                <option>Selecione</option>
+                <option>MG</option>
+                <option>SP</option>
+                <option>GO</option>
+                <option>MT</option>
+                <option>PR</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Município</label>
+              <input type="text" placeholder="Lavras" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Senha</label>
+            <input type="password" placeholder="Mínimo 8 caracteres" />
+          </div>
+          <button class="btn-register">Criar conta gratuita</button>
+          <p class="login-link">
+            Já tem uma conta?
+            <a
+              href="#"
+              onclick="
+                showScreen('home');
+                return false;
+              "
+            >
+              Entrar
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

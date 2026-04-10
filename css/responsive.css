@@ -1,0 +1,61 @@
+/* ===========================================
+   RESPONSIVE — All breakpoints in one place
+   =========================================== */
+
+/* Tablet / small desktop — dashboard adjustments */
+@media (max-width: 900px) {
+  .dash-layout           { grid-template-columns: 1fr; }
+  .dash-sidebar          { display: none; }
+  .stats-grid            { grid-template-columns: 1fr 1fr; }
+  .form-row              { grid-template-columns: 1fr; }
+}
+
+/* Tablet — public page adjustments */
+@media (max-width: 768px) {
+  .nav                   { padding: 12px 16px; }
+  .nav-links,
+  .nav-actions .btn-ghost { display: none; }
+
+  .hero                  { padding: 40px 16px 48px; }
+  .hero-stats            { gap: 24px; margin-top: 32px; }
+
+  .search-section,
+  .filter-tabs           { padding: 16px; }
+  .search-row            { flex-direction: column; }
+  .search-input-wrap     { width: 100%; }
+
+  .main-wrap             { padding: 16px; }
+  .cards-grid            { grid-template-columns: 1fr 1fr; }
+
+  .detail-layout         { grid-template-columns: 1fr; padding: 16px; }
+  .booking-card          { position: static; }
+  .specs-grid            { grid-template-columns: 1fr; }
+
+  .dash-layout           { grid-template-columns: 1fr; }
+  .dash-sidebar          { display: none; }
+  .stats-grid            { grid-template-columns: 1fr 1fr; }
+  .dash-grid             { grid-template-columns: 1fr; }
+
+  .register-layout       { grid-template-columns: 1fr; }
+  .register-hero         { display: none; }
+  .register-form         { padding: 32px 20px; }
+  .form-row              { grid-template-columns: 1fr; }
+
+  .switcher-bar          { padding: 0 16px; }
+}
+
+/* Mobile — dashboard content */
+@media (max-width: 600px) {
+  .nav                   { padding: 12px 16px; }
+  .nav-links             { display: none; }
+  .dash-content          { padding: 16px; }
+  .switcher-bar          { padding: 0 16px; }
+  .machine-grid          { grid-template-columns: 1fr; }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .cards-grid            { grid-template-columns: 1fr; }
+  .hero h1               { font-size: 26px; }
+  .stats-grid            { grid-template-columns: 1fr 1fr; }
+}

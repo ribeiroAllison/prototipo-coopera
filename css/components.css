@@ -1,0 +1,333 @@
+/* ===========================================
+   COMPONENTS — Shared UI across all pages
+   =========================================== */
+
+/* ---- NAV ---- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  text-decoration: none;
+}
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  background: var(--green);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-mark svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #EAF3DE;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: .15s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  font-weight: 500;
+}
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Dashboard nav extras */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.notif-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+.notif-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+.notif-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  border: 2px solid var(--surface);
+}
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  background: var(--surface);
+}
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+.user-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-block;
+  border-radius: var(--radius-sm);
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .15s;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-primary {
+  background: var(--green);
+  color: #EAF3DE;
+}
+.btn-primary:hover { background: var(--green-dark); }
+
+.btn-ghost {
+  background: none;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+.btn-outline {
+  background: none;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+}
+.btn-outline:hover {
+  background: var(--green);
+  color: #EAF3DE;
+}
+.btn-search {
+  background: var(--green);
+  color: #EAF3DE;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  transition: .15s;
+}
+.btn-search:hover { background: var(--green-dark); }
+
+
+/* ---- SWITCHER BAR ---- */
+.switcher-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  display: flex;
+  overflow-x: auto;
+}
+.switcher-bar a {
+  display: inline-block;
+  border-bottom: 2.5px solid transparent;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: .15s;
+}
+.switcher-bar a:hover { color: var(--text); }
+.switcher-bar a.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+/* button variant for switcher */
+.sw-btn {
+  background: none;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  transition: .15s;
+}
+.sw-btn:hover { color: var(--text); }
+.sw-btn.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+
+
+/* ---- BADGES ---- */
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.badge-green { background: var(--green-light); color: var(--green-dark); }
+.badge-amber { background: var(--amber-light); color: var(--amber); }
+.badge-gray  { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+.badge-red   { background: var(--red-light); color: var(--red); }
+
+
+/* ---- AVATAR ---- */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green-dark);
+  flex-shrink: 0;
+}
+
+
+/* ---- CHIPS ---- */
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.chip {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.chip.avail {
+  background: var(--green-light);
+  border-color: #C0DD97;
+  color: var(--green-dark);
+}
+
+
+/* ---- FORMS (shared base) ---- */
+.form-field {
+  margin-bottom: 16px;
+}
+.form-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--surface2);
+  transition: .15s;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  background: var(--surface);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+
+/* ---- SPEC ROWS (shared) ---- */
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.spec-row:last-child { border: none; }
+.spec-row span:first-child { color: var(--muted); }
+.spec-row span:last-child  { font-weight: 500; }
+
+
+/* ---- SCREEN HELPER ---- */
+.screen { display: block !important; }

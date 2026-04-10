@@ -1,479 +1,456 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coopera Máquinas</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coopera Máquinas</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="logo" href="index.html">
+        <div class="logo-mark">
+          <svg viewBox="0 0 18 18"><path d="M3 14 Q6 5 9 7 Q12 9 15 3" /></svg>
+        </div>
+        Coopera Máquinas
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Buscar máquinas</a></li>
+        <li><a href="03-painel-visao-geral.html">Anunciar</a></li>
+        <li><a href="#">Como funciona</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="location.href = '04-cadastro.html'">Entrar</button>
+        <button class="btn btn-primary" onclick="location.href = '04-cadastro.html'">
+          Cadastrar
+        </button>
+      </div>
+    </nav>
 
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --green:#3B6D11;--green-dark:#27500A;--green-mid:#639922;
-  --green-light:#EAF3DE;--green-pale:#f4faea;
-  --amber:#BA7517;--amber-light:#FAEEDA;
-  --text:#1a1f12;--muted:#6b7563;--border:#e4eadd;
-  --surface:#fff;--surface2:#f7f9f4;
-  --radius:12px;--radius-sm:8px;
-}
-body{font-family:'Inter',sans-serif;color:var(--text);background:var(--surface2);min-height:100vh}
-
-/* NAV */
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--text);text-decoration:none}
-.logo-mark{width:32px;height:32px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center}
-.logo-mark svg{width:18px;height:18px;fill:none;stroke:#EAF3DE;stroke-width:2;stroke-linecap:round}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:.15s}
-.nav-links a:hover,.nav-links a.active{color:var(--text);font-weight:500}
-.nav-actions{display:flex;gap:10px;align-items:center}
-.btn{border-radius:var(--radius-sm);padding:9px 18px;font-size:14px;font-weight:500;cursor:pointer;transition:.15s;border:none;font-family:'Inter',sans-serif}
-.btn-ghost{background:none;border:1.5px solid var(--border);color:var(--text)}
-.btn-ghost:hover{border-color:var(--green);color:var(--green)}
-.btn-primary{background:var(--green);color:#EAF3DE}
-.btn-primary:hover{background:var(--green-dark)}
-.btn-outline{background:none;border:1.5px solid var(--green);color:var(--green)}
-.btn-outline:hover{background:var(--green);color:#EAF3DE}
-
-/* SCREENS */
-.screen{display:block}
-
-
-/* SCREEN SWITCHER */
-.switcher-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:0;overflow-x:auto}
-.sw-btn{background:none;border:none;border-bottom:2.5px solid transparent;padding:14px 18px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:.15s}
-.sw-btn:hover{color:var(--text)}
-.sw-btn.active{color:var(--green);border-bottom-color:var(--green)}
-
-/* HERO */
-.hero{background:linear-gradient(135deg,#1a2e0a 0%,#2d5010 60%,#3B6D11 100%);color:#EAF3DE;padding:72px 32px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-inner{max-width:680px;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(234,243,222,.15);border:1px solid rgba(234,243,222,.25);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:500;margin-bottom:20px;color:#c8e6a0}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.1;margin-bottom:16px;color:#fff}
-.hero h1 span{color:#97C459}
-.hero p{font-size:16px;line-height:1.7;color:rgba(234,243,222,.8);margin-bottom:32px;max-width:520px}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.hero-btns .btn-primary{background:#97C459;color:#17340A;font-size:15px;padding:12px 24px}
-.hero-btns .btn-primary:hover{background:#C0DD97}
-.hero-btns .btn-ghost{border-color:rgba(255,255,255,.3);color:#EAF3DE;font-size:15px;padding:12px 24px}
-.hero-btns .btn-ghost:hover{background:rgba(255,255,255,.1)}
-.hero-stats{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
-.hero-stat{}
-.hero-stat-num{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:#fff}
-.hero-stat-label{font-size:13px;color:rgba(234,243,222,.6);margin-top:2px}
-
-/* SEARCH SECTION */
-.search-section{background:var(--surface);padding:24px 32px;border-bottom:1px solid var(--border)}
-.search-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.search-input-wrap{flex:1;min-width:200px;position:relative}
-.search-input-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:1.5}
-.search-field{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px 10px 36px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:var(--surface2);transition:.15s}
-.search-field:focus{outline:none;border-color:var(--green);background:var(--surface)}
-select.search-field{padding-left:12px;cursor:pointer}
-.btn-search{background:var(--green);color:#EAF3DE;border:none;border-radius:var(--radius-sm);padding:10px 22px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:.15s}
-.btn-search:hover{background:var(--green-dark)}
-
-/* FILTER TABS */
-.filter-tabs{padding:20px 32px 0;display:flex;gap:8px;overflow-x:auto;background:var(--surface);border-bottom:1px solid var(--border)}
-.filter-tab{background:none;border:1.5px solid var(--border);border-radius:999px;padding:7px 16px;font-size:13px;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;margin-bottom:16px;transition:.15s}
-.filter-tab:hover{border-color:var(--green);color:var(--green)}
-.filter-tab.active{background:var(--green);color:#EAF3DE;border-color:var(--green)}
-
-/* MAIN LAYOUT */
-.main-wrap{max-width:1200px;margin:0 auto;padding:32px}
-.section-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:600;color:var(--text);margin-bottom:20px}
-
-/* CARDS GRID */
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:40px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.2s;cursor:pointer}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,109,17,.1);border-color:var(--green-mid)}
-.card-img{height:140px;background:var(--green-light);display:flex;align-items:center;justify-content:center;position:relative}
-.card-img svg{width:56px;height:56px}
-.card-tag{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:500}
-.tag-avail{background:var(--green);color:#EAF3DE}
-.tag-booked{background:var(--amber-light);color:var(--amber)}
-.card-body{padding:14px 16px}
-.card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
-.card-meta{font-size:12px;color:var(--muted);margin-bottom:12px}
-.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border)}
-.card-price{font-size:14px;font-weight:500;color:var(--green)}
-.card-rating{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px}
-.star{color:#BA7517}
-
-/* DETAIL PAGE */
-.detail-layout{display:grid;grid-template-columns:1fr 360px;gap:24px;max-width:1200px;margin:0 auto;padding:32px}
-.detail-main{}
-.detail-sidebar{}
-.detail-img-wrap{background:var(--green-light);border-radius:var(--radius);height:280px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;border:1px solid var(--border)}
-.detail-img-wrap svg{width:100px;height:100px}
-.detail-info{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
-.detail-info h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px}
-.detail-info .location{font-size:14px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.chip{background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:5px 12px;font-size:12px;color:var(--muted)}
-.chip.avail{background:var(--green-light);border-color:#C0DD97;color:var(--green-dark)}
-.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.spec-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px}
-.spec-row:last-child{border:none}
-.spec-row span:first-child{color:var(--muted)}
-.spec-row span:last-child{font-weight:500}
-.reviews{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
-.reviews h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:600;margin-bottom:16px}
-.review-card{background:var(--surface2);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px}
-.review-author{font-size:13px;font-weight:500;margin-bottom:4px}
-.review-text{font-size:13px;color:var(--muted);line-height:1.5}
-
-/* SIDEBAR BOOKING */
-.booking-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:sticky;top:80px}
-.price-display{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
-.price-big{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--green)}
-.price-alt{font-size:13px;color:var(--muted);margin-top:4px}
-.booking-field{margin-bottom:14px}
-.booking-field label{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:6px}
-.booking-field input,.booking-field select{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:var(--surface2);transition:.15s}
-.booking-field input:focus,.booking-field select:focus{outline:none;border-color:var(--green)}
-.booking-total{background:var(--green-light);border-radius:var(--radius-sm);padding:14px;margin:16px 0;display:flex;justify-content:space-between;align-items:center}
-.booking-total span{font-size:13px;color:var(--green-dark)}
-.booking-total strong{font-family:'Syne',sans-serif;font-size:18px;color:var(--green)}
-.btn-book{width:100%;background:var(--green);color:#EAF3DE;border:none;border-radius:var(--radius-sm);padding:14px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;margin-bottom:10px;transition:.15s}
-.btn-book:hover{background:var(--green-dark)}
-.btn-chat{width:100%;background:none;border:1.5px solid var(--green);color:var(--green);border-radius:var(--radius-sm);padding:13px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s}
-.btn-chat:hover{background:var(--green-light)}
-.safety-note{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:12px;color:var(--muted)}
-
-/* DASHBOARD */
-.dash-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 115px)}
-.dash-sidebar{background:var(--surface);border-right:1px solid var(--border);padding:24px 12px}
-.dash-nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--muted);cursor:pointer;margin-bottom:2px;transition:.15s}
-.dash-nav-item:hover{background:var(--surface2);color:var(--text)}
-.dash-nav-item.active{background:var(--green-light);color:var(--green-dark);font-weight:500}
-.dash-nav-item svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.5}
-.dash-content{padding:32px;background:var(--surface2)}
-.dash-greeting{font-family:'Syne',sans-serif;font-size:22px;font-weight:600;margin-bottom:6px}
-.dash-sub{font-size:14px;color:var(--muted);margin-bottom:28px}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
-.stat-label{font-size:12px;color:var(--muted);margin-bottom:6px}
-.stat-num{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:var(--text)}
-.stat-num.green{color:var(--green)}
-.stat-num.amber{color:var(--amber)}
-.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.dash-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
-.dash-panel h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;margin-bottom:16px}
-.request-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
-.request-item:last-child{border:none;padding-bottom:0}
-.avatar{width:36px;height:36px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--green-dark);flex-shrink:0}
-.request-info{flex:1}
-.request-name{font-size:13px;font-weight:500;color:var(--text)}
-.request-meta{font-size:12px;color:var(--muted)}
-.badge{padding:4px 10px;border-radius:999px;font-size:11px;font-weight:500}
-.badge-green{background:var(--green-light);color:var(--green-dark)}
-.badge-amber{background:var(--amber-light);color:var(--amber)}
-.badge-gray{background:var(--surface2);color:var(--muted)}
-.map-placeholder{background:var(--green-light);border-radius:var(--radius-sm);height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px solid #C0DD97}
-.map-placeholder svg{width:32px;height:32px;fill:var(--green-mid)}
-.map-placeholder span{font-size:13px;color:var(--green-dark);font-weight:500}
-.map-placeholder small{font-size:11px;color:var(--muted)}
-
-/* REGISTER */
-.register-layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 65px)}
-.register-hero{background:linear-gradient(160deg,#1a2e0a,#3B6D11);padding:60px;display:flex;flex-direction:column;justify-content:center}
-.register-hero h2{font-family:'Syne',sans-serif;font-size:32px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:16px}
-.register-hero p{font-size:15px;color:rgba(234,243,222,.75);line-height:1.7;margin-bottom:32px}
-.register-feature{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:rgba(234,243,222,.85)}
-.register-feature::before{content:'';width:6px;height:6px;border-radius:50%;background:#97C459;flex-shrink:0}
-.register-form{padding:60px;background:var(--surface);display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
-.register-form h2{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;margin-bottom:6px}
-.register-form p{font-size:14px;color:var(--muted);margin-bottom:28px}
-.form-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:4px;gap:4px;margin-bottom:24px}
-.form-toggle-btn{flex:1;padding:9px;border:none;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;color:var(--muted);background:none;transition:.15s}
-.form-toggle-btn.active{background:var(--surface);color:var(--green);box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-field{margin-bottom:16px}
-.form-field label{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:6px}
-.form-field input,.form-field select{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:var(--surface2);transition:.15s}
-.form-field input:focus,.form-field select:focus{outline:none;border-color:var(--green);background:var(--surface)}
-.btn-register{width:100%;background:var(--green);color:#EAF3DE;border:none;border-radius:var(--radius-sm);padding:13px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s;margin-top:4px}
-.btn-register:hover{background:var(--green-dark)}
-.login-link{text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
-.login-link a{color:var(--green);text-decoration:none;font-weight:500}
-
-/* MOBILE RESPONSIVE */
-@media(max-width:768px){
-  .nav{padding:12px 16px}
-  .nav-links,.nav-actions .btn-ghost{display:none}
-  .hero{padding:40px 16px 48px}
-  .hero-stats{gap:24px;margin-top:32px}
-  .search-section,.filter-tabs{padding:16px}
-  .search-row{flex-direction:column}
-  .search-input-wrap{width:100%}
-  .main-wrap{padding:16px}
-  .cards-grid{grid-template-columns:1fr 1fr}
-  .detail-layout{grid-template-columns:1fr;padding:16px}
-  .booking-card{position:static}
-  .dash-layout{grid-template-columns:1fr}
-  .dash-sidebar{display:none}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .dash-grid{grid-template-columns:1fr}
-  .register-layout{grid-template-columns:1fr}
-  .register-hero{display:none}
-  .register-form{padding:32px 20px}
-  .form-row{grid-template-columns:1fr}
-  .specs-grid{grid-template-columns:1fr}
-  .switcher-bar{padding:0 16px}
-}
-@media(max-width:480px){
-  .cards-grid{grid-template-columns:1fr}
-  .hero h1{font-size:26px}
-  .stats-grid{grid-template-columns:1fr 1fr}
-}
-
-
-.switcher-bar a{
-  display:inline-block;
-  border:none;
-  border-bottom:2.5px solid transparent;
-  padding:14px 18px;
-  font-size:13px;
-  font-weight:500;
-  color:var(--muted);
-  text-decoration:none;
-  white-space:nowrap;
-  transition:.15s;
-}
-.switcher-bar a:hover{color:var(--text)}
-.switcher-bar a.active{color:var(--green);border-bottom-color:var(--green)}
-
-.screen{display:block!important}
-</style>
-</head>
-<body>
-<nav class="nav">
-  <a class="logo" href="index.html">
-    <div class="logo-mark">
-      <svg viewBox="0 0 18 18"><path d="M3 14 Q6 5 9 7 Q12 9 15 3"/></svg>
+    <div class="switcher-bar">
+      <a href="index.html" class="active">Início / Busca</a>
+      <a href="02-detalhe-maquina.html">Detalhe da máquina</a>
+      <a href="03-painel-visao-geral.html">Painel do locador</a>
+      <a href="04-cadastro.html">Cadastro</a>
+      <a href="painel-locatario-visao-geral.html">Painel do locatário</a>
     </div>
-    Coopera Máquinas
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Buscar máquinas</a></li>
-    <li><a href="03-painel-visao-geral.html">Anunciar</a></li>
-    <li><a href="#">Como funciona</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button class="btn btn-ghost" onclick="location.href='04-cadastro.html'">Entrar</button>
-    <button class="btn btn-primary" onclick="location.href='04-cadastro.html'">Cadastrar</button>
-  </div>
-</nav>
+    <div id="screen-home" class="screen active">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-badge">
+            <svg width="8" height="8" viewBox="0 0 8 8" style="fill: #97c459">
+              <circle cx="4" cy="4" r="4" />
+            </svg>
+            Plataforma de mecanização agrícola compartilhada
+          </div>
+          <h1>
+            Máquinas agrícolas
+            <br />
+            <span>quando você precisa</span>
+          </h1>
+          <p>
+            Conectamos pequenos e médios produtores rurais a proprietários de tratores,
+            colheitadeiras e implementos. Agende, alugue e monitore tudo em um só lugar.
+          </p>
+          <div class="hero-btns">
+            <button class="btn btn-primary" onclick="location.href = 'index.html'">
+              Buscar máquinas
+            </button>
+            <button class="btn btn-ghost" onclick="location.href = '04-cadastro.html'">
+              Anuncie sua máquina
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-num">1.240</div>
+              <div class="hero-stat-label">Máquinas cadastradas</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">4.800+</div>
+              <div class="hero-stat-label">Produtores atendidos</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">98%</div>
+              <div class="hero-stat-label">Satisfação</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">380</div>
+              <div class="hero-stat-label">Municípios</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="switcher-bar">
-  <a href="index.html" class="active">Início / Busca</a>
-  <a href="02-detalhe-maquina.html">Detalhe da máquina</a>
-  <a href="03-painel-visao-geral.html">Painel do locador</a>
-  <a href="04-cadastro.html">Cadastro</a>
-</div>
-<div id="screen-home" class="screen active">
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-badge">
-        <svg width="8" height="8" viewBox="0 0 8 8" style="fill:#97C459"><circle cx="4" cy="4" r="4"/></svg>
-        Plataforma de mecanização agrícola compartilhada
-      </div>
-      <h1>Máquinas agrícolas<br><span>quando você precisa</span></h1>
-      <p>Conectamos pequenos e médios produtores rurais a proprietários de tratores, colheitadeiras e implementos. Agende, alugue e monitore tudo em um só lugar.</p>
-      <div class="hero-btns">
-        <button class="btn btn-primary" onclick="location.href='index.html'">Buscar máquinas</button>
-        <button class="btn btn-ghost" onclick="location.href='04-cadastro.html'">Anunciar minha máquina</button>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">1.240</div><div class="hero-stat-label">Máquinas cadastradas</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">4.800+</div><div class="hero-stat-label">Produtores atendidos</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">98%</div><div class="hero-stat-label">Satisfação</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">380</div><div class="hero-stat-label">Municípios</div></div>
-      </div>
-    </div>
-  </section>
+      <section class="search-section">
+        <div class="search-row">
+          <div class="search-input-wrap">
+            <svg viewBox="0 0 16 16">
+              <circle cx="6.5" cy="6.5" r="4.5" />
+              <line x1="10" y1="10" x2="14" y2="14" />
+            </svg>
+            <input
+              class="search-field"
+              type="text"
+              placeholder="Tipo de máquina (trator, colheitadeira, plantadeira...)"
+            />
+          </div>
+          <select class="search-field" style="min-width: 160px">
+            <option>Cadeia produtiva</option>
+            <option>Milho</option>
+            <option>Café</option>
+            <option>Soja</option>
+            <option>Arroz</option>
+            <option>Feijão</option>
+            <option>Cana-de-açúcar</option>
+          </select>
+          <select class="search-field" style="min-width: 140px">
+            <option>Etapa</option>
+            <option>Preparo do solo</option>
+            <option>Plantio</option>
+            <option>Manejo</option>
+            <option>Colheita</option>
+            <option>Transporte</option>
+          </select>
+          <select class="search-field" style="min-width: 120px">
+            <option>Estado</option>
+            <option>MG</option>
+            <option>SP</option>
+            <option>GO</option>
+            <option>MT</option>
+            <option>MS</option>
+            <option>PR</option>
+          </select>
+          <button class="btn-search">Buscar</button>
+        </div>
+      </section>
 
-  <section class="search-section">
-    <div class="search-row">
-      <div class="search-input-wrap">
-        <svg viewBox="0 0 16 16"><circle cx="6.5" cy="6.5" r="4.5"/><line x1="10" y1="10" x2="14" y2="14"/></svg>
-        <input class="search-field" type="text" placeholder="Tipo de máquina (trator, colheitadeira, plantadeira...)">
+      <div class="filter-tabs">
+        <button class="filter-tab active">Todos</button>
+        <button class="filter-tab">Tratores</button>
+        <button class="filter-tab">Colheitadeiras</button>
+        <button class="filter-tab">Plantadeiras</button>
+        <button class="filter-tab">Pulverizadores</button>
+        <button class="filter-tab">Implementos</button>
+        <button class="filter-tab">Ensiladeiras</button>
+        <button class="filter-tab">Grades</button>
       </div>
-      <select class="search-field" style="min-width:160px">
-        <option>Cadeia produtiva</option>
-        <option>Milho</option><option>Café</option><option>Soja</option>
-        <option>Arroz</option><option>Feijão</option><option>Cana-de-açúcar</option>
-      </select>
-      <select class="search-field" style="min-width:140px">
-        <option>Etapa</option>
-        <option>Preparo do solo</option><option>Plantio</option>
-        <option>Manejo</option><option>Colheita</option><option>Transporte</option>
-      </select>
-      <select class="search-field" style="min-width:120px">
-        <option>Estado</option>
-        <option>MG</option><option>SP</option><option>GO</option>
-        <option>MT</option><option>MS</option><option>PR</option>
-      </select>
-      <button class="btn-search">Buscar</button>
-    </div>
-  </section>
 
-  <div class="filter-tabs">
-    <button class="filter-tab active">Todos</button>
-    <button class="filter-tab">Tratores</button>
-    <button class="filter-tab">Colheitadeiras</button>
-    <button class="filter-tab">Plantadeiras</button>
-    <button class="filter-tab">Pulverizadores</button>
-    <button class="filter-tab">Implementos</button>
-    <button class="filter-tab">Ensiladeiras</button>
-    <button class="filter-tab">Grades</button>
-  </div>
-
-  <div class="main-wrap">
-    <p class="section-title">Máquinas disponíveis na sua região</p>
-    <div class="cards-grid">
-      <!-- card 1 -->
-      <div class="card" onclick="location.href='02-detalhe-maquina.html'">
-        <div class="card-img">
-          <span class="card-tag tag-avail">Disponível</span>
-          <svg viewBox="0 0 80 80" fill="none">
-            <rect x="8" y="42" width="64" height="24" rx="5" fill="#3B6D11" opacity=".2"/>
-            <rect x="8" y="42" width="64" height="24" rx="5" stroke="#3B6D11" stroke-width="2"/>
-            <circle cx="22" cy="66" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/>
-            <circle cx="58" cy="66" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/>
-            <rect x="36" y="28" width="30" height="18" rx="3" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="1.5"/>
-            <line x1="8" y1="42" x2="36" y2="42" stroke="#3B6D11" stroke-width="2"/>
-            <rect x="10" y="50" width="20" height="8" rx="2" fill="#3B6D11" opacity=".3"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <div class="card-name">Trator New Holland 7630</div>
-          <div class="card-meta">110 CV · 4x4 · Cafeicultura · Lavras, MG</div>
-          <div class="card-footer">
-            <span class="card-price">R$ 350 / dia</span>
-            <span class="card-rating"><span class="star">★</span> 4.8 (32 av.)</span>
+      <div class="main-wrap">
+        <p class="section-title">Máquinas disponíveis na sua região</p>
+        <div class="cards-grid">
+          <!-- card 1 -->
+          <div class="card" onclick="location.href = '02-detalhe-maquina.html'">
+            <div class="card-img">
+              <span class="card-tag tag-avail">Disponível</span>
+              <svg viewBox="0 0 80 80" fill="none">
+                <rect x="8" y="42" width="64" height="24" rx="5" fill="#3B6D11" opacity=".2" />
+                <rect
+                  x="8"
+                  y="42"
+                  width="64"
+                  height="24"
+                  rx="5"
+                  stroke="#3B6D11"
+                  stroke-width="2"
+                />
+                <circle cx="22" cy="66" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2" />
+                <circle cx="58" cy="66" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2" />
+                <rect
+                  x="36"
+                  y="28"
+                  width="30"
+                  height="18"
+                  rx="3"
+                  fill="#3B6D11"
+                  opacity=".15"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                />
+                <line x1="8" y1="42" x2="36" y2="42" stroke="#3B6D11" stroke-width="2" />
+                <rect x="10" y="50" width="20" height="8" rx="2" fill="#3B6D11" opacity=".3" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Trator New Holland 7630</div>
+              <div class="card-meta">110 CV · 4x4 · Cafeicultura · Lavras, MG</div>
+              <div class="card-footer">
+                <span class="card-price">R$ 350 / dia</span>
+                <span class="card-rating">
+                  <span class="star">★</span>
+                  4.8 (32 av.)
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <!-- card 2 -->
-      <div class="card">
-        <div class="card-img">
-          <span class="card-tag tag-booked">Agendado</span>
-          <svg viewBox="0 0 80 80" fill="none">
-            <rect x="4" y="34" width="72" height="28" rx="5" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="2"/>
-            <rect x="16" y="18" width="48" height="20" rx="4" fill="#3B6D11" opacity=".2" stroke="#3B6D11" stroke-width="1.5"/>
-            <circle cx="18" cy="62" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/>
-            <circle cx="62" cy="62" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <div class="card-name">Colheitadeira John Deere S760</div>
-          <div class="card-meta">Soja / Milho · Uberlândia, MG</div>
-          <div class="card-footer">
-            <span class="card-price">R$ 1.200 / dia</span>
-            <span class="card-rating"><span class="star">★</span> 4.9 (17 av.)</span>
+          <!-- card 2 -->
+          <div class="card">
+            <div class="card-img">
+              <span class="card-tag tag-booked">Agendado</span>
+              <svg viewBox="0 0 80 80" fill="none">
+                <rect
+                  x="4"
+                  y="34"
+                  width="72"
+                  height="28"
+                  rx="5"
+                  fill="#3B6D11"
+                  opacity=".15"
+                  stroke="#3B6D11"
+                  stroke-width="2"
+                />
+                <rect
+                  x="16"
+                  y="18"
+                  width="48"
+                  height="20"
+                  rx="4"
+                  fill="#3B6D11"
+                  opacity=".2"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                />
+                <circle cx="18" cy="62" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2" />
+                <circle cx="62" cy="62" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Colheitadeira John Deere S760</div>
+              <div class="card-meta">Soja / Milho · Uberlândia, MG</div>
+              <div class="card-footer">
+                <span class="card-price">R$ 1.200 / dia</span>
+                <span class="card-rating">
+                  <span class="star">★</span>
+                  4.9 (17 av.)
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <!-- card 3 -->
-      <div class="card">
-        <div class="card-img">
-          <span class="card-tag tag-avail">Disponível</span>
-          <svg viewBox="0 0 80 80" fill="none">
-            <rect x="12" y="44" width="56" height="18" rx="4" fill="#3B6D11" opacity=".2" stroke="#3B6D11" stroke-width="2"/>
-            <rect x="28" y="28" width="24" height="18" rx="3" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="1.5"/>
-            <line x1="4" y1="62" x2="76" y2="62" stroke="#3B6D11" stroke-width="2"/>
-            <circle cx="20" cy="62" r="5" fill="#3B6D11" opacity=".4"/>
-            <circle cx="60" cy="62" r="5" fill="#3B6D11" opacity=".4"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <div class="card-name">Plantadeira Precision 7000</div>
-          <div class="card-meta">Milho / Soja · 8 linhas · Goiânia, GO</div>
-          <div class="card-footer">
-            <span class="card-price">R$ 280 / ha</span>
-            <span class="card-rating"><span class="star">★</span> 4.7 (24 av.)</span>
+          <!-- card 3 -->
+          <div class="card">
+            <div class="card-img">
+              <span class="card-tag tag-avail">Disponível</span>
+              <svg viewBox="0 0 80 80" fill="none">
+                <rect
+                  x="12"
+                  y="44"
+                  width="56"
+                  height="18"
+                  rx="4"
+                  fill="#3B6D11"
+                  opacity=".2"
+                  stroke="#3B6D11"
+                  stroke-width="2"
+                />
+                <rect
+                  x="28"
+                  y="28"
+                  width="24"
+                  height="18"
+                  rx="3"
+                  fill="#3B6D11"
+                  opacity=".15"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                />
+                <line x1="4" y1="62" x2="76" y2="62" stroke="#3B6D11" stroke-width="2" />
+                <circle cx="20" cy="62" r="5" fill="#3B6D11" opacity=".4" />
+                <circle cx="60" cy="62" r="5" fill="#3B6D11" opacity=".4" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Plantadeira Precision 7000</div>
+              <div class="card-meta">Milho / Soja · 8 linhas · Goiânia, GO</div>
+              <div class="card-footer">
+                <span class="card-price">R$ 280 / ha</span>
+                <span class="card-rating">
+                  <span class="star">★</span>
+                  4.7 (24 av.)
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <!-- card 4 -->
-      <div class="card">
-        <div class="card-img">
-          <span class="card-tag tag-avail">Disponível</span>
-          <svg viewBox="0 0 80 80" fill="none">
-            <rect x="8" y="36" width="44" height="24" rx="4" fill="#3B6D11" opacity=".2" stroke="#3B6D11" stroke-width="2"/>
-            <circle cx="20" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/>
-            <circle cx="44" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/>
-            <rect x="52" y="20" width="20" height="40" rx="4" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="1.5"/>
-            <line x1="8" y1="48" x2="4" y2="56" stroke="#3B6D11" stroke-width="2"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <div class="card-name">Pulverizador Montana 2000</div>
-          <div class="card-meta">18 m de barra · Ribeirão Preto, SP</div>
-          <div class="card-footer">
-            <span class="card-price">R$ 180 / dia</span>
-            <span class="card-rating"><span class="star">★</span> 4.6 (41 av.)</span>
+          <!-- card 4 -->
+          <div class="card">
+            <div class="card-img">
+              <span class="card-tag tag-avail">Disponível</span>
+              <svg viewBox="0 0 80 80" fill="none">
+                <rect
+                  x="8"
+                  y="36"
+                  width="44"
+                  height="24"
+                  rx="4"
+                  fill="#3B6D11"
+                  opacity=".2"
+                  stroke="#3B6D11"
+                  stroke-width="2"
+                />
+                <circle cx="20" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2" />
+                <circle cx="44" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2" />
+                <rect
+                  x="52"
+                  y="20"
+                  width="20"
+                  height="40"
+                  rx="4"
+                  fill="#3B6D11"
+                  opacity=".15"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                />
+                <line x1="8" y1="48" x2="4" y2="56" stroke="#3B6D11" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Pulverizador Montana 2000</div>
+              <div class="card-meta">18 m de barra · Ribeirão Preto, SP</div>
+              <div class="card-footer">
+                <span class="card-price">R$ 180 / dia</span>
+                <span class="card-rating">
+                  <span class="star">★</span>
+                  4.6 (41 av.)
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <!-- card 5 -->
-      <div class="card">
-        <div class="card-img">
-          <span class="card-tag tag-avail">Disponível</span>
-          <svg viewBox="0 0 80 80" fill="none">
-            <rect x="10" y="38" width="60" height="22" rx="4" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="2"/>
-            <circle cx="24" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/>
-            <circle cx="56" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/>
-            <rect x="30" y="22" width="20" height="18" rx="3" fill="#3B6D11" opacity=".2" stroke="#3B6D11" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <div class="card-name">Trator Massey Ferguson 4707</div>
-          <div class="card-meta">85 CV · Soja / Milho · Unaí, MG</div>
-          <div class="card-footer">
-            <span class="card-price">R$ 280 / dia</span>
-            <span class="card-rating"><span class="star">★</span> 4.5 (19 av.)</span>
+          <!-- card 5 -->
+          <div class="card">
+            <div class="card-img">
+              <span class="card-tag tag-avail">Disponível</span>
+              <svg viewBox="0 0 80 80" fill="none">
+                <rect
+                  x="10"
+                  y="38"
+                  width="60"
+                  height="22"
+                  rx="4"
+                  fill="#3B6D11"
+                  opacity=".15"
+                  stroke="#3B6D11"
+                  stroke-width="2"
+                />
+                <circle cx="24" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2" />
+                <circle cx="56" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2" />
+                <rect
+                  x="30"
+                  y="22"
+                  width="20"
+                  height="18"
+                  rx="3"
+                  fill="#3B6D11"
+                  opacity=".2"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Trator Massey Ferguson 4707</div>
+              <div class="card-meta">85 CV · Soja / Milho · Unaí, MG</div>
+              <div class="card-footer">
+                <span class="card-price">R$ 280 / dia</span>
+                <span class="card-rating">
+                  <span class="star">★</span>
+                  4.5 (19 av.)
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <!-- card 6 -->
-      <div class="card">
-        <div class="card-img">
-          <span class="card-tag tag-avail">Disponível</span>
-          <svg viewBox="0 0 80 80" fill="none">
-            <rect x="10" y="44" width="60" height="18" rx="4" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="2"/>
-            <line x1="10" y1="44" x2="10" y2="30" stroke="#3B6D11" stroke-width="2"/>
-            <line x1="70" y1="44" x2="70" y2="30" stroke="#3B6D11" stroke-width="2"/>
-            <line x1="10" y1="30" x2="70" y2="30" stroke="#3B6D11" stroke-width="2"/>
-            <line x1="20" y1="62" x2="20" y2="30" stroke="#3B6D11" stroke-width="1.5" opacity=".4"/>
-            <line x1="30" y1="62" x2="30" y2="30" stroke="#3B6D11" stroke-width="1.5" opacity=".4"/>
-            <line x1="40" y1="62" x2="40" y2="30" stroke="#3B6D11" stroke-width="1.5" opacity=".4"/>
-            <line x1="50" y1="62" x2="50" y2="30" stroke="#3B6D11" stroke-width="1.5" opacity=".4"/>
-            <line x1="60" y1="62" x2="60" y2="30" stroke="#3B6D11" stroke-width="1.5" opacity=".4"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <div class="card-name">Ensiladeira Nogueira TRF 550</div>
-          <div class="card-meta">Milho / Sorgo · Pecuária · Patos de Minas, MG</div>
-          <div class="card-footer">
-            <span class="card-price">R$ 120 / hora</span>
-            <span class="card-rating"><span class="star">★</span> 4.8 (11 av.)</span>
+          <!-- card 6 -->
+          <div class="card">
+            <div class="card-img">
+              <span class="card-tag tag-avail">Disponível</span>
+              <svg viewBox="0 0 80 80" fill="none">
+                <rect
+                  x="10"
+                  y="44"
+                  width="60"
+                  height="18"
+                  rx="4"
+                  fill="#3B6D11"
+                  opacity=".15"
+                  stroke="#3B6D11"
+                  stroke-width="2"
+                />
+                <line x1="10" y1="44" x2="10" y2="30" stroke="#3B6D11" stroke-width="2" />
+                <line x1="70" y1="44" x2="70" y2="30" stroke="#3B6D11" stroke-width="2" />
+                <line x1="10" y1="30" x2="70" y2="30" stroke="#3B6D11" stroke-width="2" />
+                <line
+                  x1="20"
+                  y1="62"
+                  x2="20"
+                  y2="30"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                  opacity=".4"
+                />
+                <line
+                  x1="30"
+                  y1="62"
+                  x2="30"
+                  y2="30"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                  opacity=".4"
+                />
+                <line
+                  x1="40"
+                  y1="62"
+                  x2="40"
+                  y2="30"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                  opacity=".4"
+                />
+                <line
+                  x1="50"
+                  y1="62"
+                  x2="50"
+                  y2="30"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                  opacity=".4"
+                />
+                <line
+                  x1="60"
+                  y1="62"
+                  x2="60"
+                  y2="30"
+                  stroke="#3B6D11"
+                  stroke-width="1.5"
+                  opacity=".4"
+                />
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Ensiladeira Nogueira TRF 550</div>
+              <div class="card-meta">Milho / Sorgo · Pecuária · Patos de Minas, MG</div>
+              <div class="card-footer">
+                <span class="card-price">R$ 120 / hora</span>
+                <span class="card-rating">
+                  <span class="star">★</span>
+                  4.8 (11 av.)
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<script>
-document.querySelectorAll('.filter-tab').forEach(btn=>{
-  btn.addEventListener('click',function(){
-    document.querySelectorAll('.filter-tab').forEach(b=>b.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
-</script>
-</body>
+    <script>
+      document.querySelectorAll(".filter-tab").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".filter-tab").forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
 </html>

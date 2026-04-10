@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coopera Máquinas — Anunciar máquina</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- Background: painel-maquinas dimmed -->
+<div style="filter:blur(1px);opacity:.45;pointer-events:none;user-select:none">
+  <nav class="nav">
+    <a class="logo" href="#">
+      <div class="logo-mark"><svg viewBox="0 0 18 18"><path d="M3 14 Q6 5 9 7 Q12 9 15 3"/></svg></div>
+      Coopera Máquinas
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Buscar máquinas</a></li>
+      <li><a href="#" class="active">Meu painel</a></li>
+      <li><a href="#">Como funciona</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="notif-btn"><svg viewBox="0 0 16 16"><path d="M8 1a5 5 0 0 1 5 5v3l1 2H2l1-2V6a5 5 0 0 1 5-5zM6.5 13a1.5 1.5 0 0 0 3 0"/></svg><div class="notif-dot"></div></div>
+      <div class="user-chip"><div class="user-avatar">JF</div><span class="user-name">João Ferreira</span></div>
+    </div>
+  </nav>
+  <div class="switcher-bar">
+    <a href="#">Início / Busca</a>
+    <a href="#">Detalhe da máquina</a>
+    <a href="#" class="active">Painel do locador</a>
+    <a href="#">Cadastro</a>
+    <a href="painel-locatario-visao-geral.html">Painel do locatário</a>
+  </div>
+  <div class="dash-layout">
+    <aside class="dash-sidebar">
+      <a class="dash-nav-item" href="#"><svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>Visão geral</a>
+      <div class="nav-section">Gestão</div>
+      <a class="dash-nav-item active" href="#"><svg viewBox="0 0 16 16"><rect x="1" y="7" width="10" height="7" rx="1"/><circle cx="4" cy="14" r="2"/><circle cx="9" cy="14" r="2"/><rect x="7" y="4" width="6" height="5" rx="1"/></svg>Minhas máquinas</a>
+      <a class="dash-nav-item" href="#"><svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h5"/><circle cx="13" cy="11" r="3"/><path d="M12 11l.8.8L14.5 9.5"/></svg>Pedidos pendentes<span class="nav-badge">2</span></a>
+      <a class="dash-nav-item" href="#"><svg viewBox="0 0 16 16"><rect x="1" y="3" width="14" height="12" rx="2"/><path d="M5 1v4M11 1v4M1 8h14"/></svg>Agenda</a>
+      <a class="dash-nav-item" href="#"><svg viewBox="0 0 16 16"><rect x="2" y="1" width="12" height="14" rx="2"/><path d="M5 5h6M5 8h6M5 11h4"/></svg>Contratos</a>
+      <div class="nav-section">Relatórios</div>
+      <a class="dash-nav-item" href="#"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>Histórico</a>
+      <div style="margin-top:auto"><div style="height:1px;background:var(--border);margin:12px 0"></div>
+      <a class="dash-nav-item" href="#"><svg viewBox="0 0 16 16"><circle cx="8" cy="6" r="3"/><path d="M2 14c0-3 2.7-5 6-5s6 2 6 5"/></svg>Meu perfil</a></div>
+    </aside>
+    <main class="dash-content">
+      <div class="page-header">
+        <div><div class="page-title">Minhas máquinas</div><div class="page-sub">3 equipamentos cadastrados · 2 disponíveis</div></div>
+        <a href="#" class="btn btn-primary">+ Anunciar nova máquina</a>
+      </div>
+      <div class="machine-grid">
+        <div class="machine-card">
+          <div class="machine-img">
+            <span class="machine-tag" style="background:var(--green);color:#EAF3DE">Disponível</span>
+            <svg viewBox="0 0 80 80" fill="none" width="60" height="60"><rect x="8" y="42" width="64" height="24" rx="5" fill="#3B6D11" opacity=".2" stroke="#3B6D11" stroke-width="2"/><circle cx="22" cy="66" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/><circle cx="58" cy="66" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/><rect x="36" y="28" width="30" height="18" rx="3" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="1.5"/></svg>
+          </div>
+          <div class="machine-body">
+            <div class="machine-name">Trator New Holland 7630</div>
+            <div class="machine-meta">110 CV · 4x4 · Ano 2021 · Lavras, MG</div>
+            <div class="machine-stats">
+              <div><div class="machine-stat-label">Receita/mês</div><div class="machine-stat-val" style="color:var(--green)">R$ 3.500</div></div>
+              <div><div class="machine-stat-label">Locações</div><div class="machine-stat-val">12</div></div>
+              <div><div class="machine-stat-label">Avaliação</div><div class="machine-stat-val">★ 4.8</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="machine-card">
+          <div class="machine-img">
+            <span class="machine-tag" style="background:var(--amber-light);color:var(--amber)">Em uso</span>
+            <svg viewBox="0 0 80 80" fill="none" width="60" height="60"><rect x="8" y="36" width="44" height="24" rx="4" fill="#3B6D11" opacity=".2" stroke="#3B6D11" stroke-width="2"/><circle cx="20" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/><circle cx="44" cy="60" r="9" fill="#EAF3DE" stroke="#3B6D11" stroke-width="2"/><rect x="52" y="20" width="20" height="40" rx="4" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="1.5"/></svg>
+          </div>
+          <div class="machine-body">
+            <div class="machine-name">Pulverizador Montana 2000</div>
+            <div class="machine-meta">18 m de barra · Lavras, MG</div>
+          </div>
+        </div>
+        <div class="machine-card">
+          <div class="machine-img">
+            <span class="machine-tag" style="background:var(--surface2);color:var(--muted);border:1px solid var(--border)">Pausado</span>
+            <svg viewBox="0 0 80 80" fill="none" width="60" height="60"><rect x="12" y="44" width="56" height="18" rx="4" fill="#3B6D11" opacity=".15" stroke="#3B6D11" stroke-width="2"/><rect x="28" y="28" width="24" height="18" rx="3" fill="#3B6D11" opacity=".1" stroke="#3B6D11" stroke-width="1.5"/></svg>
+          </div>
+          <div class="machine-body">
+            <div class="machine-name">Plantadeira Precision 7000</div>
+            <div class="machine-meta">8 linhas · Milho/Soja · Lavras, MG</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Modal overlay -->
+<div class="modal-backdrop">
+  <div class="modal">
+
+    <div class="modal-header">
+      <div class="modal-title">Anunciar nova máquina</div>
+      <a href="painel-maquinas.html" class="modal-close" title="Fechar">&#x2715;</a>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Progress steps -->
+      <div class="steps">
+        <div class="step done"></div>
+        <div class="step active"></div>
+        <div class="step"></div>
+      </div>
+
+      <!-- Section: Identificação -->
+      <div class="modal-section-label">Identificação do equipamento</div>
+
+      <div class="form-field">
+        <label for="categoria">Categoria</label>
+        <select id="categoria">
+          <option value="">Selecione a categoria</option>
+          <option>Trator</option>
+          <option>Colheitadeira</option>
+          <option>Pulverizador</option>
+          <option>Plantadeira</option>
+          <option>Grade / Arado</option>
+          <option>Outro</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="marca">Marca</label>
+          <input id="marca" type="text" placeholder="ex: New Holland">
+        </div>
+        <div class="form-field">
+          <label for="modelo">Modelo</label>
+          <input id="modelo" type="text" placeholder="ex: 7630">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="ano">Ano de fabricação</label>
+          <input id="ano" type="number" placeholder="ex: 2021">
+        </div>
+        <div class="form-field">
+          <label for="potencia">Potência / Capacidade</label>
+          <input id="potencia" type="text" placeholder="ex: 110 CV">
+        </div>
+      </div>
+
+      <!-- Section: Localização -->
+      <div class="modal-section-label">Localização</div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="cidade">Cidade</label>
+          <input id="cidade" type="text" placeholder="ex: Lavras">
+        </div>
+        <div class="form-field">
+          <label for="estado">Estado</label>
+          <select id="estado">
+            <option value="">UF</option>
+            <option>MG</option><option>SP</option><option>PR</option>
+            <option>RS</option><option>MT</option><option>GO</option>
+            <option>MS</option><option>BA</option><option>Outro</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section: Preço -->
+      <div class="modal-section-label">Precificação</div>
+
+      <div class="price-row">
+        <div class="form-field">
+          <label for="diaria">Diária (R$)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">R$</span>
+            <input id="diaria" type="number" placeholder="0,00">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="hectare">Por hectare (opcional)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">R$</span>
+            <input id="hectare" type="number" placeholder="0,00">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Descrição -->
+      <div class="modal-section-label">Descrição</div>
+
+      <div class="form-field">
+        <label for="descricao">Descreva o equipamento</label>
+        <textarea id="descricao" rows="3" placeholder="Estado de conservação, acessórios inclusos, condições de uso..."></textarea>
+      </div>
+
+      <!-- Section: Fotos -->
+      <div class="modal-section-label">Fotos</div>
+
+      <div class="photo-upload">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <span>Arraste fotos ou clique para selecionar</span>
+        <small>PNG, JPG · máx. 10 MB por foto</small>
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <a href="painel-maquinas.html" class="btn btn-ghost">Cancelar</a>
+      <button class="btn btn-primary">Continuar →</button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
